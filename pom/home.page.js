@@ -16,3 +16,4 @@ exports.Home = class Home {
   }
   
 };
+
