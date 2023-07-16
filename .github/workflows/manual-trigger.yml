@@ -6,29 +6,11 @@ on:
   workflow_dispatch:
     # Inputs the workflow accepts.
 jobs:
-    install:
-    timeout-minutes: 60
-    name: 🔍 Install
+  build:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v3
- 
-      - name: Cache node_modules
-        uses: actions/cache@v3
-        id: cache-node-modules
-        with:
-          path: |
-            node_modules
-          key: modules-${{ hashFiles('package-lock.json') }}
- 
-      - name: Cache Playwright binaries
-        uses: actions/cache@v3
-        id: cache-playwright
-        with:
-          path: |
-            ~/.cache/ms-playwright
-          key: playwright-${{ hashFiles('package-lock.json') }}
  
       - name: Install dependencies
         run: npm ci
