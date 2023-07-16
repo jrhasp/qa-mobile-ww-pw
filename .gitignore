@@ -1,8 +1,11 @@
+<<<<<<< HEAD
 #Playwright
 /test-results/
 /playwright-report/
 /playwright/.cache/
 
+=======
+>>>>>>> e1f34fd5b7bd3f40ee4685c47e7dde80fdd4f9cb
 # Logs
 logs
 *.log
