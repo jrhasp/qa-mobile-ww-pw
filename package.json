@@ -1,0 +1,14 @@
+{
+  "name": "qa-mobile-pw",
+  "version": "1.0.0",
+  "description": "QA Mobile Automation",
+  "main": "index.js",
+  "scripts": {
+    "test": "playwright test --headed --project=Pixel"
+  },
+  "author": "Jonathan Haslop",
+  "license": "ISC",
+  "devDependencies": {
+    "@playwright/test": "^1.36.1"
+  }
+}
