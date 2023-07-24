@@ -13,5 +13,19 @@ exports.Login = class Login {
     this.logoGoogle = this.page.locator('.login-facebook-logo');
   }
 
+  async verifySignInPageLoads() {
+    await expect(this.title).toBeVisible();
+    await expect(this.title).toHaveText('Sign-In')
+  }
+
+  async verifyLoginMethodsDisplay() {
+    await expect(this.title).toBeVisible();
+    await expect(this.title).toHaveText('Sign-In');
+    await expect(this.logoEmail).toBeVisible();
+    await expect(this.logoFacebook).toBeVisible();
+    await expect(this.logoGoogle).toBeVisible();
+  }
+
+
 };
 

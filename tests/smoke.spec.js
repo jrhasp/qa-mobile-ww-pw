@@ -24,41 +24,33 @@ test.describe('WatchWorthy' ,() => {
 
   test('should navigate to watchworthy.app and verify app loads', async () => {
     await home.goto();
-    await expect(home.btnStart).toBeVisible();
+    await home.verifyBtnStartIsVisible();
   });
 
   test('should verify that signin page loads', async () => {
     await home.goto();
-    await home.btnSignin.click();
-    await expect(login.title).toBeVisible();
-    await expect(login.title).toHaveText('Sign-In')
+    await home.clickBtnSignIn();
+    await login.verifySignInPageLoads();
   });
 
   test('should verify all login methods are displayed', async () => {
     await home.goto();
-    await home.btnSignin.click();
-    await expect(login.title).toBeVisible();
-    await expect(login.title).toHaveText('Sign-In');
-    await expect(login.logoEmail).toBeVisible();
-    await expect(login.logoFacebook).toBeVisible();
-    await expect(login.logoGoogle).toBeVisible();
+    await home.clickBtnSignIn();
+    await login.verifyLoginMethodsDisplay();
   });
 
   test('shuold verify all providers render', async () => {
     await home.goto();
-    await expect(home.btnStart).toBeVisible();
-    await home.btnStart.click();
-    await expect(services.title).toBeVisible();
-    await expect(services.listServices).toHaveCount(78);
+    await home.clickBtnStart();
+    await services.verifyServicesPageLoaded();
+    await services.verifyAllServicesRender(78);
   });
 
   test('should skip providers landing and verify rating page loads', async () => {
     await home.goto();
-    await expect(home.btnStart).toBeVisible();
-    await home.btnStart.click();
-    await services.btnSkip.click();
-    await expect(await rate.btnCloseGuide).toBeVisible();
-    await rate.btnCloseGuide.click();
+    await home.clickBtnStart();
+    await services.clickBtnSkip();
+    await rate.closeGuide();
   });
 
 

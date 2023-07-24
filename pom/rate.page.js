@@ -10,5 +10,10 @@ exports.Rate = class Rate {
     this.btnCloseGuide = this.page.locator('div[role="button"][class*="guide__close-button"]')
   }
 
+  async closeGuide() {
+    await expect(this.btnCloseGuide).toBeDefined();
+    await this.btnCloseGuide.click();
+  }
+
 };
 

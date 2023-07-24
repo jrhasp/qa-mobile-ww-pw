@@ -14,6 +14,21 @@ exports.Home = class Home {
   async goto() {
     await this.page.goto('https://watchworthy.app')
   }
+
+  async verifyBtnStartIsVisible() {
+   await expect(this.btnStart).toBeVisible();
+  }
+
+  async clickBtnSignIn() {
+    await expect(this.btnSignin).toBeVisible();
+    await this.btnSignin.click();
+  }
+
+  async clickBtnStart() {
+    await this.verifyBtnStartIsVisible();
+    await this.btnStart.click();
+  }
+
   
 };
 
